@@ -13,10 +13,16 @@ export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
+  team: React.ReactNode;
+  analytics: React.ReactNode;
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+      <div>{children}</div>
+        {/* <div>{team}</div>
+        <div>{analytics}</div> */}
+      </body>    
     </html>
   );
 }
