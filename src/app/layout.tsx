@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
-  children,
+  children,team,analytics
 }: Readonly<{
   children: React.ReactNode;
   team: React.ReactNode;
@@ -20,8 +20,8 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
       <div>{children}</div>
-        {/* <div>{team}</div>
-        <div>{analytics}</div> */}
+         <div>{team}</div>
+        <div>{analytics}</div> 
       </body>    
     </html>
   );
