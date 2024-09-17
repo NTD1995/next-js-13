@@ -15,14 +15,14 @@ const Page = async () => {
   return (
     <div className="m-4">
       <h1 className="text-lg font-bold">ユーザ一覧</h1>
-      <Suspense fallback={<p>Loading...</p>}></Suspense>
-
-      <UserList />
-      <ul>
-        {users.map((user) => (
-          <li key={user.id}>{user.name}</li>
-        ))}
-      </ul>
+      <Suspense fallback={<p>Loading...</p>}>
+        <UserList />
+        <ul>
+          {users.map((user) => (
+            <li key={user.id}>{user.name}</li>
+          ))}
+        </ul>
+      </Suspense>
     </div>
   );
 };
