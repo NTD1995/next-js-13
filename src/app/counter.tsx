@@ -1,7 +1,8 @@
-’use client’
-import { useState } from 'react';
+"use client";
+import { useState } from "react";
+import { useCounter } from './context/CounterProvider';
 
-const Counter = () => {
+const Counter = ({ children }: { children: 
   const [count, setCount] = useState<number>(0);
   const increment = () => {
     setCount((prev) => prev + 1);

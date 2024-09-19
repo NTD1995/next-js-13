@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { CounterProvider } from "./context/CounterProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -10,7 +11,9 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
-  children,team,analytics
+  children,
+  team,
+  analytics,
 }: Readonly<{
   children: React.ReactNode;
   team: React.ReactNode;
@@ -19,10 +22,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-      <div>{children}</div>
-         <div>{team}</div>
-        <div>{analytics}</div> 
-      </body>    
+        <div>{children}</div>
+        <div>{team}</div>
+        <div>{analytics}</div>
+      </body>
     </html>
   );
 }
