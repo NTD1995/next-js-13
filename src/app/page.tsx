@@ -1,5 +1,6 @@
 import Link from "next/link";
-import Counter from "./Counter";
+import Counter from "./counter";
+import UserList from "./users/UserList";
 
 export default function Home() {
   return (
@@ -8,7 +9,10 @@ export default function Home() {
         About
       </Link>
       <h1 className="text-2xl">Home</h1>
-      <Counter />
+      <Counter>
+        <h2 className="font-bold text-lg mt-4">ユーザ一覧</h2>
+        <UserList />
+      </Counter>
     </div>
   );
 }
