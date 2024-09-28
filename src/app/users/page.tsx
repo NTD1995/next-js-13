@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Counter from "./Counter";
+import Counter from "./counter";
 import UserList from "./UserList";
 import { Suspense } from "react";
 
