@@ -1,6 +1,6 @@
 import Link from "next/link";
-import Counter from "./counter";
-import UserList from "./users/UserList";
+import Counter from "../counter";
+import UserList from "./UserList";
 
 export default function Home() {
   return (
@@ -16,3 +16,28 @@ export default function Home() {
     </div>
   );
 }
+
+const Page = async () => {
+  const response = await fetch("http://localhost:3000/api", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      name: "John",
+      email: "john@example.com",
+    }),
+  });
+
+  const data = await response.json();
+
+  console.log(data);
+
+  return (
+    <div className="m-4">
+      <h1 className="text-lg font-bold">ユーザ一覧</h1>
+      {/* @ts-expect-error Async Server Component */}
+      <UserList />
+    </div>
+  );
+};
