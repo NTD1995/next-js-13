@@ -9,12 +9,9 @@ type User = {
   email: string;
 };
 
-const response = await fetch("http://localhost:3000/api", {
-  cache: "no-store",
-});
-
 const UserList = async () => {
-  const response = await fetch("https://jsonplaceholder.typicode.com/user");
+  // await new Promise((resolve) => setTimeout(resolve, 5000));
+  const response = await fetch("http://localhost:3000/api");
   if (!response.ok) throw new Error("Failed to fetch data");
   const users: User[] = await response.json();
   return (
@@ -33,7 +30,10 @@ export async function GET() {
   console.log("headersList", headersList);
   console.log("cookieStore", cookieStore);
 
-  const response = await fetch("https://jsonplaceholder.typicode.com/users");
+  const response = await fetch("http://localhost:3000/api", {
+    // cache: 'no-store',
+    next: { revalidate: 5 },
+  });
   const data = await response.json();
   return NextResponse.json(data);
 }
