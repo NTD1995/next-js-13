@@ -1,4 +1,5 @@
-import prisma from "@/lib/prisma";
+import { Post } from "@prisma/client";
+import AddPost from "./AddPost";
 
 const Page = async () => {
   const posts = await prisma.post.findMany();
