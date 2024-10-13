@@ -1,6 +1,9 @@
+"use client";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function AddPost() {
+  const router = useRouter();
   const [title, setTitle] = useState<string>("");
   const [content, setContent] = useState<string>("");
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = async (
@@ -18,6 +21,8 @@ export default function AddPost() {
 
     setTitle("");
     setContent("");
+
+    router.refresh();
   };
 
   return (
