@@ -1,14 +1,19 @@
-import UserList from './UserList';
+import UserList from "./UserList";
+
+export const metadata = {
+  title: "ユーザの一覧ページ",
+  description: "JSONPlaceHolderから取得したユーザ一覧です。",
+};
 
 const Page = async () => {
-  const response = await fetch('http://localhost:3000/api', {
-    method: 'POST',
+  const response = await fetch("http://localhost:3000/api", {
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      name: 'John',
-      email: 'john@example.com',
+      name: "John",
+      email: "john@example.com",
     }),
   });
 
@@ -19,6 +24,7 @@ const Page = async () => {
   return (
     <div className="m-4">
       <h1 className="text-lg font-bold">ユーザ一覧</h1>
+      {/* @ts-expect-error Async Server Component */}
       <UserList />
     </div>
   );

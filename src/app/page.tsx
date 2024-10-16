@@ -2,6 +2,13 @@ import Link from "next/link";
 import Counter from "./counter";
 import UserList from "./users/UserList";
 
+export const metadata = {
+  metadataBase: new URL("https://localhost.com:3000"),
+  alternates: {
+    canonical: "/",
+  },
+};
+
 export default function Home() {
   return (
     <div className="m-4">
